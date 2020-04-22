@@ -1,5 +1,6 @@
 package edu.northeastern.cs5200.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +17,7 @@ public class Student extends Person {
   private List<Enrollment> enrollment;
   public Student()
 	{
-
+    enrollment=new ArrayList<>();
 	}
 
   
@@ -24,10 +25,11 @@ public class Student extends Person {
 	super(username, password, firstName, lastName);
 	this.gradYear = gradYear;
 	this.scholarship = scholarship;
+	 enrollment=new ArrayList<>();
 }
 public void addEnrollment(Enrollment e)
  {
-	 enrollment.add(e);
+	 this.enrollment.add(e);
  }
  public void removeEnrollment(Enrollment e)
  {

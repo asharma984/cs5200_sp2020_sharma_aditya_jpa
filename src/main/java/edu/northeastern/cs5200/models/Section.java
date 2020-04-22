@@ -1,4 +1,5 @@
 package edu.northeastern.cs5200.models;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,12 +16,15 @@ public class Section {
 	  @OneToMany(mappedBy="section")
 	  private List<Enrollment> enrollments;
 	  public Section()
-		{}
+		{
+			enrollments=new ArrayList<>();
+		}
 
 	  public Section(String title, int seats) {
 		super();
 		this.title = title;
 		this.seats = seats;
+			enrollments=new ArrayList<>();
 	}
 	public void addEnrollment(Enrollment e)
 	  {
@@ -53,6 +57,7 @@ public class Section {
 	}
 	public void setCourse(Course course) {
 		this.course = course;
+		if(!course.getSections().contains(this))
 		course.addSection(this);
 	}
 	public List<Enrollment> getEnrollments() {

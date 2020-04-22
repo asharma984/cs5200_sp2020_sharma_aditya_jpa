@@ -40,6 +40,8 @@ public class UniversityDao {
 	    	sectionRepository.deleteAll();
 	    	courseRepository.deleteAll();
 	    	personRepository.deleteAll();
+	    	facultyRepository.deleteAll();
+	    	studentRepository.deleteAll();
 	    }
 	    public Faculty createFaculty(Faculty faculty)
 	    {
@@ -66,8 +68,14 @@ public class UniversityDao {
 	    }
 	    public Course setAuthorForCourse(Faculty faculty, Course course)
 	    {
-	    	course.setFaculty(faculty);
-	    	return courseRepository.save(course);
+	    	try{
+				course.setFaculty(faculty);
+				return courseRepository.save(course);}
+	    	catch(Exception e)
+				{
+					System.out.println("catch");
+				}
+	    	return null;
 	    }
 	    public boolean enrollStudentInSection(Student student, Section section)
 	    {

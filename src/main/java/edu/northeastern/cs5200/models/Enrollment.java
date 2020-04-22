@@ -12,7 +12,11 @@ public class Enrollment {
 	   private Student student;
 	   @ManyToOne
 	   private Section section;
-	   
+	   public Enrollment()
+		 {
+
+		 }
+
 	public Enrollment(int grade, String feedback, Student student, Section section) {
 		super();
 		this.grade = grade;

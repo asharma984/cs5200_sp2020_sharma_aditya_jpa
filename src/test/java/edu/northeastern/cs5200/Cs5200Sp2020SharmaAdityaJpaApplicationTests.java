@@ -94,7 +94,7 @@ class Cs5200Sp2020SharmaAdityaJpaApplicationTests {
 		uniDao.enrollStudentInSection(s1, sec2);
 		uniDao.enrollStudentInSection(s2, sec2);
 		uniDao.enrollStudentInSection(s3, sec3);
-		
+
 		//1
 		Assertions.assertEquals(9,uniDao.findAllUsers().size());
 		//2

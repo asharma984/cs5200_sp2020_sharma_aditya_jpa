@@ -22,16 +22,17 @@ public class Faculty extends Person {
 	super(username, password, firstName, lastName);
 	this.office = office;
 	this.tenured = tenured;
+     courses=new ArrayList<>();
 }
 
 public void addCourse(Course course) {
        courses.add(course);
+       if(!course.getFaculty().equals(this))
        course.setFaculty(this);
    }
 
    public void removeCourse(Course course) {
        courses.remove(course);
-       course.setFaculty(this);
    }
 public String getOffice() {
 	return office;

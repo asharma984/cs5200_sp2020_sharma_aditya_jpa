@@ -23,12 +23,14 @@ public class Course {
 public Course()
 {
 	sections=new ArrayList<>();
-	faculty=new Faculty();
+
 }
 
 	public Course(String label) {
 		super();
 		this.label = label;
+		sections=new ArrayList<>();
+
 	}
     public List<Section> getSections() {
 		return sections;
@@ -42,13 +44,14 @@ public Course()
 
 
     public void addSection(Section section) {
-        sections.add(section);
+        if(!sections.contains(section))
+        	sections.add(section);
         section.setCourse(this);
     }
 
     public void removeSection(Section section) {
     	sections.remove(section);
-        section.setCourse(this);
+
     }
 
 	public int getId() {
